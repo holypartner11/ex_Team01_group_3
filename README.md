@@ -2,6 +2,8 @@
 
 本项目基于当当网官网数据，对Python类图书销售情况进行系统性分析，包括销售趋势、热门图书、价格分析等维度。
 
+本项目的github地址为（https://github.com/holypartner11/ex_Team01_group_3）
+
 ## 数据集
 
 项目使用的数据集来源于当当网官网（[https://www.dangdang.com/](https://www.dangdang.com/)），包含以下主要内容：
