@@ -106,7 +106,7 @@ Visual Studio Code打开/codes/00_Main.ipynb执行，可输出所有分析结果
 ```
 00_Main.ipynb核心执行流程
 1. 初始化环境 → 切换工作目录 → 创建 output 输出文件夹
-2. 启动实时日志（控制台+文件双输出）
+2. 启动实时日志
 3. 批量执行 9 个 .ipynb 文件（数据下载→清洗→7个任务分析）
 4. 调用 Marp CLI 生成 PPTX 报告
 5. 调用 Marp CLI 生成 HTML 报告
