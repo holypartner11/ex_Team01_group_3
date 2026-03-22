@@ -324,6 +324,8 @@ Visual Studio Code打开/codes/00_Main.ipynb执行，可输出所有分析结果
 - 输出文件：
   - ./code/00_Main.ipynb
   - ./output/run_output_log.md
+  - ./output/市场调研报告.html
+  - ./output/市场调研报告.pptx
 
 **📊 任务结果分析**
 
