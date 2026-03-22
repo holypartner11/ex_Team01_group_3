@@ -51,18 +51,18 @@
 
 ```
 ├── README.md              # 作业说明文档
-├── analysis.md              # 市场调研报告
+├── create_analysis_report.md              # 动态生成市场调研报告源文件
 ├── codes/      
-│   └── 00_main.ipynb                    # 主程序代码
-│   └── 01_data_download.ipynb           # 爬取数据代码
-│   └── 02_data_clean.ipynb              # 清洗数据代码
-│   └── 03_analysis_Tsk1.ipynb           # 题1分析代码
-│   └── 03_analysis_Tsk2.ipynb           # 题2分析代码
-│   └── 03_analysis_Tsk3.ipynb           # 题3分析代码
-│   └── 03_analysis_Tsk4.ipynb           # 题4分析代码
-│   └── 03_analysis_Tsk5.ipynb           # 选做题1分析代码
-│   └── 03_analysis_Tsk6.ipynb           # 选做题2分析代码
-│   └── 03_analysis_Tsk7.ipynb           # 选做题3分析代码
+│   ├── 00_Main.ipynb                    # 主程序代码
+│   ├── 01_Data_Download.ipynb           # 爬取数据代码
+│   ├── 02_Data_Clean.ipynb              # 清洗数据代码
+│   ├── 03_Tsk1_Sales_Top10_Analysis.ipynb           # 题1分析代码
+│   ├── 03_Tsk2_Distribution_Domain_Analysis.ipynb   # 题2分析代码
+│   ├── 03_Tsk3_Publisher_Analysis.ipynb             # 题3分析代码
+│   ├── 03_Tsk4_Distribution_Analysis.ipynb          # 题4分析代码
+│   ├── 03_Tsk5_Freq_Word_Analysis.ipynb             # 选做题1分析代码
+│   ├── 03_Tsk6_Book_Categories_Analysis.ipynb       # 选做题2分析代码
+│   └── 03_Tsk7_Title_Keywords_Price_Sales_Analysis.ipynb # 选做题3分析代码
 ├── data_clean/            
 │   ├── dangdang_python_books_clean.csv   # 清洗后数据
 ├── data_raw/             
@@ -75,7 +75,9 @@
     └── Tsk5                         # 选做题1输出结果
     ├── Tsk6                         # 选做题2输出结果
     └── Tsk7                         # 选做题3输出结果
-    └── run_output_log.md            # 00_main.ipynb执行日志
+    └── run_output_log.md            # 00_Main.ipynb执行日志
+    └── 市场调研报告.html             # 市场调研报告HTML版本
+    └── 市场调研报告.pptx             # 市场调研报告PPT版本
 ```
 
 ------
@@ -89,19 +91,33 @@
 如执行脚本报错，可能是依赖包未安装导致，可先安装再执行。
 
 ```
+1、Visual Studio Code插件
 pip install jieba
 pip install wordcloud（可选）
+2、Node.js + Marp CLI 全局安装
+如要输出PPT+HTML市场调研报告，需要Windows安装插件Marp CLI：
+(1). 安装Node.js：https://nodejs.org/
+(2). cmd命令窗口执行命令：npm install -g @marp-team/marp-cli
 ```
 
 ### 2. ▶️ 运行说明
 
-Visual Studio Code打开/codes/00_main.ipynb执行，可输出所有结果。
+Visual Studio Code打开/codes/00_Main.ipynb执行，可输出所有分析结果，自动生成PPT和HTML版本的市场调研报告。
+```
+00_Main.ipynb核心执行流程
+1. 初始化环境 → 切换工作目录 → 创建 output 输出文件夹
+2. 启动实时日志（控制台+文件双输出）
+3. 批量执行 9 个 .ipynb 文件（数据下载→清洗→7个任务分析）
+4. 调用 Marp CLI 生成 PPTX 报告
+5. 调用 Marp CLI 生成 HTML 报告
+6. 关闭日志，完成全部任务
+```
 
-注意：
+**注意：**
 
-1、如果要运行除了00_main.ipynb以外的其他ipynb分析脚本，需要保证先执行01_data_download.ipynb、02_data_clean.ipynb源数据，再执行其他分析脚本，否则无源文件，后续的分析脚本会获取失败。
+1、如果要运行除了00_Main.ipynb以外的其他ipynb分析脚本，需要保证先执行01_Data_Download.ipynb、02_Data_Clean.ipynb获取源数据，再执行其他分析脚本，否则无源文件，后续的分析脚本会获取失败。
 
-2、analysis.md图片如无法正常显示，请先执行00_main.ipynb获取数据后再查看。
+2、create_analysis_report.md或PPT或HTML市场调研报告输出异常，请先执行00_Main.ipynb获取最新数据后再查看。
 
 
 
@@ -152,7 +168,7 @@ Visual Studio Code打开/codes/00_main.ipynb执行，可输出所有结果。
 - 工具：copilot
 - 分析数据源：./data_clean/dangdang_python_books_clean.csv
 - 输出文件：
-  - ./codes/03_analysis_Tsk1.ipynb
+  - ./codes/03_Tsk1_Sales_Top10_Analysis.ipynb
   - ./output/Tsk1/*
 
 **📊 任务结果分析**
@@ -173,7 +189,7 @@ Visual Studio Code打开/codes/00_main.ipynb执行，可输出所有结果。
 - 提示词链接：https://www.doubao.com/thread/a67abcce48293?share_token=7DCC7039-2725-43F2-BFC4-B48D3AEFBBF2
 - 分析数据源：../data_clean/dangdang_python_books_clean.csv
 - 输出文件：
-  - ./codes/03_analysis_Tsk2.ipynb
+  - ./codes/03_Tsk2_Distribution_Domain_Analysis.ipynb
   - ./output/Tsk2/*
 
 **📊 任务结果分析**
@@ -193,7 +209,7 @@ Visual Studio Code打开/codes/00_main.ipynb执行，可输出所有结果。
 - 提示词链接：https://www.doubao.com/thread/ae39432df0397
 - 分析数据源：../data_clean/dangdang_python_books_clean.csv
 - 输出文件：
-  - ./codes/03_analysis_Tsk3.ipynb
+  - ./codes/03_Tsk3_Publisher_Analysis.ipynb
   - ./output/Tsk3/*
 
 **📊 任务结果分析**
@@ -215,7 +231,7 @@ Visual Studio Code打开/codes/00_main.ipynb执行，可输出所有结果。
   https://www.doubao.com/thread/w34bf2c7e5ba353f8
 - 分析数据源：../data_clean/dangdang_python_books_clean.csv
 - 输出文件：
-  - ./codes/03_analysis_Tsk4.ipynb
+  - ./codes/03_Tsk4_Distribution_Analysis.ipynb
   - ./output/Tsk4/*
 
 **📊 任务结果分析**
@@ -235,7 +251,7 @@ Visual Studio Code打开/codes/00_main.ipynb执行，可输出所有结果。
 - 提示词链接：https://claude.ai/share/b53cc3a7-84e2-4972-8de4-8e6cd35c0284
 - 分析数据源：../data_clean/dangdang_python_books_clean.csv
 - 输出文件：
-  - ./codes/03_analysis_Tsk5.ipynb
+  - ./codes/03_Tsk5_Freq_Word_Analysis.ipynb
   - ./output/Tsk5*
 
 **📊 任务结果分析**
@@ -265,7 +281,7 @@ Visual Studio Code打开/codes/00_main.ipynb执行，可输出所有结果。
 - 提示词链接：https://www.doubao.com/thread/w5706dc7ab510e0a7
 - 分析数据源：../data_clean/dangdang_python_books_clean.csv
 - 输出文件：-
-  - ./codes/03_analysis_Tsk6.ipynb
+  - ./codes/03_Tsk6_Book_Categories_Analysis.ipynb
   - ./output/Tsk6/*
 
 **📊 任务结果分析**
@@ -287,7 +303,7 @@ Visual Studio Code打开/codes/00_main.ipynb执行，可输出所有结果。
 - 提示词链接：https://www.doubao.com/thread/w921bf9a22632a987
 - 分析数据源：../data_clean/dangdang_python_books_clean.csv
 - 输出文件：
-  - ./codes/03_analysis_Tsk7.ipynb
+  - ./codes/03_Tsk7_Title_Keywords_Price_Sales_Analysis.ipynb
   - ./output/Tsk7/*
 
 **📊 任务结果分析**
@@ -306,7 +322,7 @@ Visual Studio Code打开/codes/00_main.ipynb执行，可输出所有结果。
 
 - 提示词链接：https://www.doubao.com/thread/w450a2b38241644be
 - 输出文件：
-  - ./code/00_main.ipynb
+  - ./code/00_Main.ipynb
   - ./output/run_output_log.md
 
 **📊 任务结果分析**
