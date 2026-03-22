@@ -252,7 +252,7 @@ Visual Studio Code打开/codes/00_Main.ipynb执行，可输出所有分析结果
 - 分析数据源：../data_clean/dangdang_python_books_clean.csv
 - 输出文件：
   - ./codes/03_Tsk5_Freq_Word_Analysis.ipynb
-  - ./output/Tsk5*
+  - ./output/Tsk5/*
 
 **📊 任务结果分析**
 
